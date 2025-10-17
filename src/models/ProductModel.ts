@@ -11,9 +11,6 @@ export class Product {
   @Column({ type: "text", nullable: true })
   description?: string;
 
-  // @Column({ type: "decimal", precision: 12, scale: 2, default: 0 })
-  // price!: number;
-
   @Column({ type: "int", default: 0 })
   quantity!: number;
 
