@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from "typeorm";
 
 @Entity('products')
 export class Product {
@@ -16,4 +16,7 @@ export class Product {
 
   @CreateDateColumn()
   createdAt!: Date;
+
+  @Column({ type: "text", nullable: true })
+  createdByUser!: string;
 }

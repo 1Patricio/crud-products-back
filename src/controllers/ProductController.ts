@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from "express";
 import { ProductService } from "../services/ProductService";
+import { AuthService } from "../services/AuthService";
 
 export const ProductController = {
   async get(req: Request, res: Response, next: NextFunction) {
     try {
-      res.json(await ProductService.list());
+      const user = AuthService.userInfo(req.headers.authorization!.replace("Bearer ", ""));
+      res.json(await ProductService.list((await user).id));
     } catch (err) { next(err); }
   },
 
