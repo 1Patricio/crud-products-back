@@ -32,8 +32,6 @@ export const AuthController = {
 
       const user = await AuthService.userInfo(token);
 
-      console.log('Caiu aqui')
-
       return res.json({ user });
     } catch (err) {
       return res.status(401).json({ message: "Não autorizado" });

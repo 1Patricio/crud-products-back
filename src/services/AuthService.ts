@@ -13,7 +13,6 @@ export const AuthService = {
 
     const existingUser =  await UserRepository.findOneBy({ email });
     if (existingUser) {
-      console.log('Usuario Existe')
       throw new Error("Usuário já existente");
     } 
 
